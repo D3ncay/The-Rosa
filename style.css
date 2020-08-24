@@ -5,7 +5,7 @@
 *::after{
     margin:0;
     padding:0;
-    box-sizing: bordex-box;
+    box-sizing: border-box;
 }
 
 :root{
@@ -20,9 +20,13 @@
 html{
     font-family: var(--body-font);
     font-size: 10px;
-    color:var(--body-font-color);
+    color: var(--body-font-color);
     scroll-behavior: smooth;
 }
+
+/* body{
+    overflow-x:hidden;
+} */
 
 section{
     padding:3.9rem 0 ;
@@ -166,6 +170,9 @@ header{
     font-weight: 100;
     line-height: .4;
     letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeUp .5s forwards;
+    animation-delay: .5s;
 }
 
 .first-letter{
@@ -181,6 +188,8 @@ header{
     font-weight: 900;
     letter-spacing: .5rem;
     margin-right: -.5rem;
+    animation: scale .5s forwards;
+ 
 }
 
  .separator{
@@ -195,6 +204,9 @@ header{
      height: .25rem;
      background-color: #fff;
      position: relative;
+     opacity: 0;
+     animation: grow 2s forwards;
+     animation-delay: .9s;
  }
 
  .line-right::before,
@@ -204,6 +216,10 @@ header{
      top: 50%;
      transform: translateY(-50%);
      border: .6rem solid transparent;
+     opacity: 0;
+     animation: grow 1.5s forwards;
+     animation-delay: 1.2s;
+   
  }
 
  .line-right::before{
@@ -220,6 +236,16 @@ header{
     font-size: 1.2rem;
     color: var(--secondary-font-color);
     margin: 0 1.6rem;
+    opacity: 0; 
+    animation: spin .5s forwards;
+    animation-delay: .7s;
+
+}
+
+.single-animation{
+    opacity: 0 ;
+    animation: fadeDown .5s forwards;
+    animation-delay: 1.5s;
 }
 
 .headline-description h5{
@@ -243,7 +269,7 @@ header{
     font-size: 1.1rem;
     background-color: #fff;
     padding: .9rem 1.8rem;
-    color: var (--body-font-color);
+    color: var(--body-font-color);
     border-radius: .4rem;
     transition: background-color .5s;
 }
@@ -317,7 +343,7 @@ header{
     color: var(--main-font-color-dark);
 }
 
-.body-btn:hover::before,focus
+.body-btn:hover::before,
 .body-btn:focus::before{
     background-color: var(--main-font-color-dark);
 }
@@ -381,11 +407,12 @@ footer{
     color: #fff;
     font-size: 2rem;
     padding: 2rem;
+    animation: up 2s infinite;
 }
 
 .footer-content{
-    /* overflow:hidden; */
-}
+    /* overflow: hidden; */
+} 
 
 .footer-content h4{
     font-size: 1.9rem;
@@ -449,7 +476,7 @@ color: var(--secondary-font-color);
     font-size: 1.6rem;
     padding: 1px .6rem;
     position: absolute;
-    top:50%;
+    top: 50%;
     transform: translateY(-50%);
     margin-left: 10.5rem;
 }
@@ -457,7 +484,7 @@ color: var(--secondary-font-color);
 /* Media quaries */
 @media screen and (min-width: 900px){
     section{
-        padding: 7.9rem;
+      /* padding: 7.9rem; */
     }
     .menu-toggle{
         display: none;
@@ -524,9 +551,9 @@ color: var(--secondary-font-color);
         align-items: center;
     }
 
-    .restaurant-info > div{
+    /* .restaurant-info > div{
         flex:1;
-    }
+    } */
 
     .padding-right{
         padding-right: 7rem;
@@ -539,7 +566,7 @@ color: var(--secondary-font-color);
 
     .footer-content-about{
         max-width: 51.3rem;
-        margin: 0 auto 5.4 rem;
+        margin: 0 auto 5.4rem;
     }
 
     .footer-content-divider{
@@ -561,6 +588,72 @@ color: var(--secondary-font-color);
     .newsletter-btn{
         margin-left: 7.5rem;
     }
+}
+    
+
+/* Animations */
+
+@keyframes fadeUp {
+    0%{
+        transform: translateY(4rem);
     }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scale {
+    0%{
+        transform: scale(2);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes grow {
+    0%{
+        width: 0;
+    }
+    100%{
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes fadeDown {
+    0%{
+        transform: translateY(-1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes up {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+}
     
 
